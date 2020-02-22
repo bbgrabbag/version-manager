@@ -12,7 +12,7 @@ const router = express.Router();
 router.route('/')
     .get(async (req, res, next) => {
         try {
-            const versions = await db.getVersions({});
+            const versions = await db.getVersions();
             res.status(200).send(versions);
         } catch (e) {
             next({ status: 500, message: 'Unable to retrieve versions' })

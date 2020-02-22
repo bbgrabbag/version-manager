@@ -20,8 +20,8 @@ const VersionSchema = new mongoose.Schema({
 
 const VersionModel = mongoose.model('Versions', VersionSchema);
 
-const getVersions = async (query = {}) => {
-    return await VersionModel.find(query)
+const getVersions = async () => {
+    return await VersionModel.find().sort('-createdAt')
 }
 const createVersion = async (version) => {
     const versionDocument = new VersionModel(version);
